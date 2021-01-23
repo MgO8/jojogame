@@ -1,11 +1,12 @@
 const jojo = document.getElementById('jojo');
 const dio = document.getElementById('dio');
 
-document.addEventListener('keydown', function(event){
+const jumpCb = function(event){
     if (event.code === 'Space') {
         jump();
     }
-});
+}
+document.addEventListener('keydown', jumpCb);
 
 let scoreCount = 0;
 let jojoX = 0;
@@ -31,7 +32,7 @@ let isAlive = setInterval ( function() {
     let dioPenetratedJojo = dioX < 50 && dioX > 0 && jojoY >= 100
 
     if (dioPenetratedJojo && !gameover) {
-        document.removeEventListener('keydown');
+        document.removeEventListener('keydown', jumpCb);
         gameover = true
         scoreCount = 0;
 
@@ -52,11 +53,9 @@ let isAlive = setInterval ( function() {
             jojo.style.backgroundImage = 'url(img/boom1.gif)';
         })
 
-        // yoba comment
-
-        document.addEventListener('keydown', function(event){
+        const resetGameOver = function(event){
             if (event.code === 'Space') {
-                document.removeEventListener('keydown');
+                document.removeEventListener('keydown', resetGameOver);
                 // Reset jojo img
                 jojo.style.backgroundImage = 'url(img/jojo.png)';
 
@@ -76,8 +75,12 @@ let isAlive = setInterval ( function() {
                         jump();
                     }
                 });
+
+                gameover = false;
             }
-        });
+        }
+
+        document.addEventListener('keydown', resetGameOver);
 
         // alert(`GAME OVER. YOUR SCORE IS ${scoreCount} `)
     }
