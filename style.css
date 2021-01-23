@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
+
+.game {
+    width: 600px;
+    height: 200px;
+    border-bottom: 1px solid purple; 
+    border-style: inset;
+    /* margin: auto;  */
+    float: right; /* pin to right side of container or some shit i dunno*/
+    margin-top: 100px; /* logo is static height */
+    margin-right: 20px; 
+    background: linear-gradient(to top,white, #c5f7ec);
+}
+
+#jojo {
+    width: 80px;
+    height: 80px; 
+    background-image: url(img/jojo.png);
+    background-size: 80px 80px;
+    position:relative;
+    top: 120px; 
+}
+
+#dio {
+    width: 30px; 
+    height: 50px;
+    background-image: url(img/dio.png);
+    background-size: 30px 50px;
+    position: relative;
+    top: 70px; 
+    left: 570px; 
+    animation: dioMov 2s infinite linear; 
+}
+
+@keyframes dioMov {
+    0% {
+        left: 570px;
+    }
+    100% {
+        left: -20px; 
+    }
+}
+
+.jump {
+    animation: jump 0.4s linear; 
+}
+
+.paused {
+    -webkit-animation-play-state:paused !important;
+    -moz-animation-play-state:paused !important;
+    -o-animation-play-state:paused !important; 
+    animation-play-state:paused !important;
+}
+
+@keyframes jump {
+    0% {
+        top: 50px;
+    }
+    30% {
+        top: 30px;
+    }
+    50% {
+        top: 0; 
+    }
+    80% {
+        top: 30px; 
+    }
+    100% {
+        top: 50px; 
+    }
+}
+
+body {
+    font-family: 'Cinzel', serif; 
+    background: url(img/logo.png) top right no-repeat,
+    url(img/wall.jpeg) no-repeat
+}
+
+.press {
+    padding-left: 900px;
+    font-size: 40px;
+    margin-top: 200px; 
+}
