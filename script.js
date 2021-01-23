@@ -52,6 +52,8 @@ let isAlive = setInterval ( function() {
             jojo.style.backgroundImage = 'url(img/boom1.gif)';
         })
 
+        // yoba comment
+
         document.addEventListener('keydown', function(event){
             if (event.code === 'Space') {
                 document.removeEventListener('keydown');
