@@ -98,3 +98,13 @@ body {
     top: 0%; 
     right: 0
 }
+
+#scoreboard {
+    background: #eb008b70;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    border-radius: 10px;
+    margin: auto;
+}
