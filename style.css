@@ -6,9 +6,8 @@
     border-bottom: 1px solid purple; 
     border-style: inset;
     /* margin: auto;  */
-    float: right; /* pin to right side of container or some shit i dunno*/
-    margin-top: 100px; /* logo is static height */
-    margin-right: 20px; 
+    /* float: left; pin to right side of container or some shit i dunno */
+    /* margin-top: 100px; logo is static height ??? */
     background: linear-gradient(to top,white, #c5f7ec);
 }
 
@@ -72,12 +71,30 @@
 
 body {
     font-family: 'Cinzel', serif; 
-    background: url(img/logo.png) top right no-repeat,
-    url(img/wall.jpeg) no-repeat
+    background: url(img/wall.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .press {
-    padding-left: 900px;
-    font-size: 40px;
-    margin-top: 200px; 
+    font-size: 40px; 
+    position: relative;
+    left: 15%; 
+}
+
+/* доверстать кнопку с отображением счета игрока*/
+
+.game-container {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    left: 60%; 
+    top: 30%; 
+}
+
+.logo-img {
+    position: fixed; 
+    top: 0%; 
+    right: 0
 }

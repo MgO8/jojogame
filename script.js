@@ -6,6 +6,7 @@ const jumpCb = function(event){
         jump();
     }
 }
+
 document.addEventListener('keydown', jumpCb);
 
 let scoreCount = 0;
