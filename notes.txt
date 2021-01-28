@@ -1,0 +1,12 @@
+Click -> change gamescreen bg, change button color, change characters assets
+
+
+// :hover - псевдокласс, применяется к элементам на который наведён курсор
+.gallery-img:hover {
+    border: 1px solid red;
+}
+
+мЕнЯТЬ БЭкГРАУНД кОГдА ВЫбИРАЕш))) ПРЕСОНААД)) ТИП КЛИК ЖОЖО БАЦ И ВАЛПАПЕР СМЕНИЛО бДЫЩЩЩ!
+Pogpe3aTb }\{o/7Ky }\{0}\{0 (?????)
+
+

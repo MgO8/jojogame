@@ -77,7 +77,7 @@ let isAlive = setInterval ( function() {
         // Stop time
         jojo.classList.add('paused')
         dio.classList.add('paused')
-
+ 
         // Play sounds
         voiceline.play()
         zawarudoEffect.play();
@@ -90,3 +90,23 @@ document.addEventListener('keydown', resetGameOver);
 zawarudoEffect.addEventListener('ended', () => {
     jojo.style.backgroundImage = 'url(img/boom1.gif)';
 })
+
+let currentFighter = jojo;
+let currentEnemy = dio;
+
+const chooseYourFighter = function (fighterName) {
+    if (fighterName === 'dio') {
+        currentFighter = dio;
+        currentEnemy = jojo;
+    }
+    if (fighterName === 'jojo') {
+        currentFighter = jojo;
+        currentEnemy = dio;
+    }
+
+    console.log(`
+    Fighter picked!
+    Current Fighter: ${currentFighter.id}
+    Current Enemy: ${currentEnemy.id}
+    `)
+} 

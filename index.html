@@ -9,32 +9,31 @@
 </head>
 
 <body id="bodyid">
-    <!-- <div class=container-characters>
-        <div class="characters">
-            <a class="gallery-item">
-                <img class="gallery-img" src="img/jojo.png" alt="JoJo">
-                <p class="gallery-label">JoJo</p>
-            </a>
-            <a class="gallery-item">
-                <img class="gallery-img" src="img/dio.png" alt="Dio">
-                <p class="gallery-label">Dio</p>
-            </a>
-        </div>
-    </div> -->
+    <img class='logo-img' src='img/logo.png' alt="JoJo logo" width="200" height="100">
     <div class='game-container'>
-        <div> 
+        <div>
             <div id="scoreboard">YOUR SCORE IS 0</div>
-            <p class="press">Press space to jump!</p> 
+            <p class="press">Press space to jump!</p>
         </div>
-        <div >
-            <img class='logo-img' src='img/logo.png' alt="JoJo logo">
+        <div>
+
         </div>
         <div class='game'>
             <div id='jojo'></div>
             <div id='dio'></div>
         </div>
+        <div class=container-characters>
+            <!-- char info -->
+            <a class="gallery-item" onclick="chooseYourFighter('jojo');">
+                <img class="gallery-img" src="img/jotaro-face.png" alt="JoJo" width="150" height="180">
+                <p class="gallery-label">JoJo・ジョジョ・</p>
+            </a>
+            <a class="gallery-item">
+                <img class="gallery-img" onclick="chooseYourFighter('dio');" src="img/dio-face.png" alt="Dio" width="200" height="180">
+                <p class="gallery-label">Dio・ディオ・</p>
+            </a>
+        </div>
     </div>
-
     <script src='script.js'></script>
 </body>
 

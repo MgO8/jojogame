@@ -5,9 +5,6 @@
     height: 200px;
     border-bottom: 1px solid purple; 
     border-style: inset;
-    /* margin: auto;  */
-    /* float: left; pin to right side of container or some shit i dunno */
-    /* margin-top: 100px; logo is static height ??? */
     background: linear-gradient(to top,white, #c5f7ec);
 }
 
@@ -29,6 +26,8 @@
     top: 70px; 
     left: 570px; 
     animation: dioMov 2s infinite linear; 
+    /* transform: scale(-1, 1);  
+    reverse img  */ 
 }
 
 @keyframes dioMov {
@@ -83,18 +82,16 @@ body {
     left: 15%; 
 }
 
-/* доверстать кнопку с отображением счета игрока*/
-
 .game-container {
     display: flex;
     flex-direction: column; 
     position: absolute;
     left: 60%; 
-    top: 30%; 
+    top: 20%; 
 }
 
 .logo-img {
-    position: fixed; 
+    position: absolute; 
     top: 0%; 
     right: 0
 }
@@ -107,4 +104,14 @@ body {
     font-size: 2em;
     border-radius: 10px;
     margin: auto;
+}
+
+.container-characters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15%; 
+    text-align: center;
+    font-size: 20px; 
+    font-weight: bold;
 }
