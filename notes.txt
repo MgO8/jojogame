@@ -10,3 +10,9 @@ Click -> change gamescreen bg, change button color, change characters assets
 Pogpe3aTb }\{o/7Ky }\{0}\{0 (?????)
 
 
+final-score:
+1) save (5 best OR last 5)
+2) share
+модалка со скорбордом 
+
+изменить войсы 
