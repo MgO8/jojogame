@@ -78,6 +78,10 @@ body {
     background-attachment: fixed;
 }
 
+.hidden {
+    display: none;
+}
+
 .press {
     font-size: 40px; 
     position: relative;
@@ -88,7 +92,7 @@ body {
     display: flex;
     flex-direction: column; 
     position: absolute;
-    left: 60%; 
+    left: 50%; 
     top: 15%; 
 }
 
@@ -121,3 +125,49 @@ body {
 .input {
     box-shadow: inset 0 2em 3em -3em green;;
 }
+
+.gallery-img {
+    float:left;
+}
+
+.gallery-item > * {
+    transition: all 0.5s ease-out;
+}
+
+.gallery-item:hover > .gallery-img {
+    transform:scale(1.1);
+	opacity:0.7;
+	cursor:pointer;
+    
+}
+
+.gallery-item:hover > .gallery-label {
+    transform:scale(1.1);
+	opacity:0.7;
+	cursor:pointer;
+}
+
+#modal {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    cursor:pointer;
+}
+
+#scoretable {
+    border: 1px solid aliceblue;
+    margin: auto;
+    position: relative;
+    top: 10vw;
+    left: 20vw;
+    width: 500px;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }

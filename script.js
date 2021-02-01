@@ -1,6 +1,7 @@
 const jojo = document.getElementById('jojo');
 const dio = document.getElementById('dio');
 const scoreboard = document.getElementById('scoreboard')
+const modal = document.getElementById('modal')
 
 let scoreCount = 0;
 let jojoX = 0;
@@ -16,23 +17,25 @@ zawarudoEffect.volume = 0.2
 
 const jumpCb = function (event) {
     if (event.code === 'Space') {
-        if (jojo.classList != 'jump') {
+        event.preventDefault()
+
+        if (!jojo.classList.contains('jump')) {
             jojo.classList.add('jump')
+            scoreCount = scoreCount + 1;
         }
         setTimeout(function () {
             jojo.classList.remove('jump')
         }, 300)
-
-        scoreCount = scoreCount + 1;
     }
 }
 
 const resetGameOver = function (event) {
     if (gameover && event.code === 'Space') {
         console.log('Game Reset')
+        scoreCount = 0;
 
         // Reset jojo img
-        jojo.style.backgroundImage = 'url(img/jojo.png)';
+        jojo.style.backgroundImage = jojoBackground;
 
         // Start time
         jojo.classList.remove('paused')
@@ -71,7 +74,6 @@ let isAlive = setInterval(function () {
     }
 
     if (dioPenetratedJojo && !gameover) {
-        scoreCount = 0;
         console.log('Game Over')
         gameover = true
 
@@ -84,6 +86,7 @@ let isAlive = setInterval(function () {
         zawarudoEffect.play();
     }
 }, 1)
+
 
 document.addEventListener('keydown', jumpCb);
 document.addEventListener('keydown', resetGameOver);
@@ -100,6 +103,7 @@ const chooseYourFighter = function (fighterName) {
         currentFighter = dio;
         currentEnemy = jojo;
 
+        jojoBackground = 'url(img/dio.png)';
         jojo.style.backgroundImage = 'url(img/dio.png)';
         dio.style.backgroundImage = 'url(img/jojo.png)';
         jojo.classList.add('reverse')
@@ -112,6 +116,7 @@ const chooseYourFighter = function (fighterName) {
         currentFighter = jojo;
         currentEnemy = dio;
 
+        jojoBackground = 'url(img/jojo.png)'; 
         jojo.classList.remove('reverse')
         jojo.style.backgroundImage = 'url(img/jojo.png)';
         dio.style.backgroundImage = 'url(img/dio.png)';
@@ -148,3 +153,16 @@ saveHighScore = (e) => {
     highScores.sort((a, b) => b.score - a.score);
     console.log(highScores);
 };
+
+showModal = (e) => {
+    modal.classList.remove('hidden')
+    window.scrollTo(0, 0);
+    document.getElementById('bodyid').classList.add('stop-scrolling')
+}
+
+const hideModal = (e) => {
+    modal.classList.add('hidden')
+    document.getElementById('bodyid').classList.remove('stop-scrolling')
+}
+
+modal.addEventListener('click', hideModal)
