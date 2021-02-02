@@ -93,7 +93,7 @@ body {
     flex-direction: column; 
     position: absolute;
     left: 50%; 
-    top: 15%; 
+    padding-top: 20px; 
 }
 
 .logo-img {
