@@ -18,14 +18,15 @@ zawarudoEffect.volume = 0.2
 const jumpCb = function (event) {
     if (event.code === 'Space') {
         event.preventDefault()
-
-        if (!jojo.classList.contains('jump')) {
+         
+        if (!jojo.classList.contains('jump')) {      
             jojo.classList.add('jump')
             scoreCount = scoreCount + 1;
+
+            setTimeout(function () {
+                jojo.classList.remove('jump')
+            }, 400)
         }
-        setTimeout(function () {
-            jojo.classList.remove('jump')
-        }, 400)
     }
 }
 
@@ -82,7 +83,6 @@ let isAlive = setInterval(function () {
     }
 
     if (dioPenetratedJojo && !gameover) {
-
         console.log('Game Over')
         gameover = true
 
@@ -118,7 +118,6 @@ const chooseYourFighter = function (fighterName) {
         jojo.classList.add('reverse')
         bodyid.style.backgroundImage = 'url(img/wall-dio.png)';
         scoreboard.style.background = 'rgb(209, 80, 18)';
-        // game.style.background = 'linear-gradient(to top, white, #fff1af)'; 
 
     }
     if (fighterName === 'jojo') {
@@ -146,12 +145,12 @@ username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
 });
 
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 updateScoretable = () => {
     scoretable.innerHTML = highScores
     .map( score => {
-        return(`<li id='scoretable'>${score.name}-${score.score}</li>`)
+        return(`<li class='scoreentry'>${score.name} - ${score.score} points!</li>`)
     })
     .join("");     
 }
@@ -167,7 +166,7 @@ saveHighScore = (e) => {
     highScores.push(score);
 
     highScores.sort((a, b) => b.score - a.score);
-    highScores = highScores.slice(0, 9);
+    highScores = highScores.slice(0, 10);
     console.log(highScores);
 
     updateScoretable()

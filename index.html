@@ -10,9 +10,7 @@
 
 <body id="bodyid">
     <div id="modal" class="hidden">
-        <ol id="scoretable">
-            
-        </ol>
+        <ol start="1" id="scoretable"></ol>
     </div>
     <img class='logo-img' src='img/logo.png' alt="JoJo logo" width="200" height="100">
     <div class='game-container'>
@@ -39,26 +37,27 @@
             </a>
         </div>
     <input
-        type='text';
-        name='username';
-        id='username';
-        placeholder="Username"
+        type='text'
+        name='username'
+        id='username'
+        placeholder="Username (Max 15 characters)"
+        maxlength="15" 
         autocomplete="off"
     > 
     <button
-        type='submit';
-        class='btn';
-        id='saveScoreBtn';
-        onclick='saveHighScore(event)';
+        type='submit'
+        class='btn'
+        id='saveScoreBtn'
+        onclick='saveHighScore(event)'
         disabled
     >
     Save
     </button>
     <button
-        type='submit';
-        class='btn';
-        id='showModalButton';
-        onclick='showModal(event)';
+        type='submit'
+        class='btn'
+        id='showModalButton'
+        onclick='showModal(event)'
     >
     Highscores
     </button>
