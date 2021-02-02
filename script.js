@@ -1,7 +1,7 @@
 const jojo = document.getElementById('jojo');
 const dio = document.getElementById('dio');
-const scoreboard = document.getElementById('scoreboard')
-const modal = document.getElementById('modal')
+const scoreboard = document.getElementById('scoreboard');
+const modal = document.getElementById('modal');
 
 let scoreCount = 0;
 let jojoX = 0;
@@ -25,14 +25,22 @@ const jumpCb = function (event) {
         }
         setTimeout(function () {
             jojo.classList.remove('jump')
-        }, 300)
+        }, 400)
     }
+}
+
+setJojoBoomGif = () => {
+    jojo.style.backgroundImage = 'url(img/boom1.gif)';
 }
 
 const resetGameOver = function (event) {
     if (gameover && event.code === 'Space') {
         console.log('Game Reset')
         scoreCount = 0;
+
+        // Remove active listeners
+        voiceline.removeEventListener('ended', setJojoBoomGif)
+        zawarudoEffect.removeEventListener('ended', setJojoBoomGif)
 
         // Reset jojo img
         jojo.style.backgroundImage = jojoBackground;
@@ -74,6 +82,7 @@ let isAlive = setInterval(function () {
     }
 
     if (dioPenetratedJojo && !gameover) {
+
         console.log('Game Over')
         gameover = true
 
@@ -84,16 +93,16 @@ let isAlive = setInterval(function () {
         // Play sounds
         voiceline.play()
         zawarudoEffect.play();
+
+        // Boom after effect
+        zawarudoEffect.addEventListener('ended', setJojoBoomGif)
     }
 }, 1)
-
 
 document.addEventListener('keydown', jumpCb);
 document.addEventListener('keydown', resetGameOver);
 
-zawarudoEffect.addEventListener('ended', () => {
-    jojo.style.backgroundImage = 'url(img/boom1.gif)';
-})
+zawarudoEffect.addEventListener('ended', setJojoBoomGif)
 
 let currentFighter = jojo;
 let currentEnemy = dio;
@@ -138,7 +147,14 @@ username.addEventListener('keyup', () => {
 });
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-console.log(highScores);
+
+updateScoretable = () => {
+    scoretable.innerHTML = highScores
+    .map( score => {
+        return(`<li id='scoretable'>${score.name}-${score.score}</li>`)
+    })
+    .join("");     
+}
 
 saveHighScore = (e) => {
     console.log('clicked the save button!');
@@ -151,7 +167,10 @@ saveHighScore = (e) => {
     highScores.push(score);
 
     highScores.sort((a, b) => b.score - a.score);
+    highScores = highScores.slice(0, 9);
     console.log(highScores);
+
+    updateScoretable()
 };
 
 showModal = (e) => {

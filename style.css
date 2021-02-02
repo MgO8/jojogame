@@ -165,6 +165,7 @@ body {
     top: 10vw;
     left: 20vw;
     width: 500px;
+    color: white; 
 }
 
 .stop-scrolling {
